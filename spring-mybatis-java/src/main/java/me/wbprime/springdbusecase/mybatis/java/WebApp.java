@@ -1,18 +1,19 @@
-package me.wbprime.springmvctesting.unittest.normal.java.config;
+package me.wbprime.springdbusecase.mybatis.java;
 
 
+import me.wbprime.springdbusecase.mybatis.java.config.AppContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
 
 /**
- * Class: WebAppInitializer
+ * Class: WebApp
  * Date: 2016/04/11 23:01
  *
  * @author Elvis Wang [mail@wbprime.me]
  */
-public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class WebApp extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return null;
@@ -21,7 +22,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class<?>[] {
-            WebAppContext.class
+            AppContext.class
         };
 
     }
