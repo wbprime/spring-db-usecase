@@ -4,18 +4,18 @@ package me.wbprime.springdbusecase.mybatis.java.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.GsonHttpMessageConverter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver;
-import org.springframework.web.servlet.view.InternalResourceView;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import java.util.Properties;
+import java.util.List;
 
 /**
  * Class: MvcContext
@@ -38,6 +38,14 @@ public class MvcContext extends WebMvcConfigurerAdapter {
         final DefaultServletHandlerConfigurer configurer
     ) {
         configurer.enable();
+    }
+
+    @Override
+    public void configureMessageConverters(
+        final List<HttpMessageConverter<?>> converters
+    ) {
+        final GsonHttpMessageConverter messageConverter = new GsonHttpMessageConverter();
+        converters.add(messageConverter);
     }
 
     @Bean
