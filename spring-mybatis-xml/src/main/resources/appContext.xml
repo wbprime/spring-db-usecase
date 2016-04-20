@@ -5,7 +5,7 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        ">
 
-    <import resource="webMvcContext.xml"/>
-    <import resource="servicesContext.xml"/>
     <import resource="persistenceContext.xml"/>
+    <import resource="servicesContext.xml" />
+    <import resource="mvcContext.xml"/>
 </beans>

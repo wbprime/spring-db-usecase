@@ -28,6 +28,6 @@
     <!--</typeHandlers>-->
 
     <mappers>
-        <mapper resource="mappers/PingDAO.xml"/>
+        <mapper resource="mybatis/mappers/PingDAO.xml"/>
     </mappers>
 </configuration>

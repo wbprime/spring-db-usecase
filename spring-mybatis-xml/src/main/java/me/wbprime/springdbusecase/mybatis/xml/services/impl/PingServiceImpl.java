@@ -8,9 +8,7 @@ import me.wbprime.springdbusecase.mybatis.xml.dto.PingDTO;
 import me.wbprime.springdbusecase.mybatis.xml.exceptions.PingNotFoundException;
 import me.wbprime.springdbusecase.mybatis.xml.models.Ping;
 import me.wbprime.springdbusecase.mybatis.xml.services.PingServiceI;
-import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,10 +18,16 @@ import java.util.List;
  *
  * @author Elvis Wang [mail@wbprime.me]
  */
-@Service("pingService")
 public class PingServiceImpl implements PingServiceI {
-    @Resource(type = PingDAO.class)
     private PingDAO pingDao;
+
+    public final PingDAO getPingDao() {
+        return pingDao;
+    }
+
+    public final void setPingDao(final PingDAO pingDao) {
+        this.pingDao = pingDao;
+    }
 
     @Override
     public PingDTO insert(final PingDTO dto) {

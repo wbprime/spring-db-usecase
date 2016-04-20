@@ -17,7 +17,7 @@
         SELECT id, title, description FROM pings WHERE id = #{id} ;
     </select>
 
-    <update id="findOne" parameterType="Ping">
+    <update id="updateOne" parameterType="Ping">
         UPDATE pings SET title = #{title}, description = #{description} WHERE id = #{id} ;
     </update>
 

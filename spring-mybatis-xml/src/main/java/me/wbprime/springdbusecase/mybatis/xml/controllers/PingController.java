@@ -7,6 +7,8 @@ import me.wbprime.springdbusecase.mybatis.xml.dto.ErrorDTO;
 import me.wbprime.springdbusecase.mybatis.xml.dto.PingDTO;
 import me.wbprime.springdbusecase.mybatis.xml.exceptions.PingNotFoundException;
 import me.wbprime.springdbusecase.mybatis.xml.services.PingServiceI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -31,6 +33,8 @@ import java.util.List;
  */
 @RestController
 public class PingController {
+    private static Logger logger = LoggerFactory.getLogger(PingController.class);
+
     @Resource(name = "pingService")
     private PingServiceI pingService;
 
@@ -90,5 +94,16 @@ public class PingController {
         }
 
         return result;
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public List<ErrorDTO> handleRuntimeException(final RuntimeException e) {
+        final ErrorDTO dto = new ErrorDTO();
+        dto.setError(e.getMessage());
+
+        return ImmutableList.of(
+            dto
+        );
     }
 }
