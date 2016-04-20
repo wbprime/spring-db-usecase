@@ -42,6 +42,7 @@
         <alibaba.druid.version>1.0.18</alibaba.druid.version>
         <h2.version>1.4.191</h2.version>
         <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
+        <aspectj.weaver.version>1.8.9</aspectj.weaver.version>
     </properties>
 
     <build>
@@ -117,6 +118,11 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
                 <artifactId>spring-web</artifactId>
                 <version>${spring.framework.version}</version>
             </dependency>
@@ -124,6 +130,11 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
                 <version>${spring.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.weaver.version}</version>
             </dependency>
 
             <!-- Servlet API 3.0 -->
