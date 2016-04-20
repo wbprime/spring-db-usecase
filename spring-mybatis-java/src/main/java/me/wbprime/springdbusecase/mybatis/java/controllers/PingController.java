@@ -93,4 +93,15 @@ public class PingController {
 
         return result;
     }
+
+    @ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public List<ErrorDTO> handleRuntimeException(final RuntimeException e) {
+        final ErrorDTO dto = new ErrorDTO();
+        dto.setError(e.getMessage());
+
+        return ImmutableList.of(
+            dto
+        );
+    }
 }

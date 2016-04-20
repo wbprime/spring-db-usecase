@@ -9,6 +9,7 @@ import me.wbprime.springdbusecase.mybatis.java.exceptions.PingNotFoundException;
 import me.wbprime.springdbusecase.mybatis.java.models.Ping;
 import me.wbprime.springdbusecase.mybatis.java.services.PingServiceI;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Collections;
@@ -25,6 +26,7 @@ public class PingServiceImpl implements PingServiceI {
     @Resource(type = PingDAO.class)
     private PingDAO pingDao;
 
+    @Transactional
     @Override
     public PingDTO insert(final PingDTO dto) {
         final Ping ping = createPingFromDTO(dto);
@@ -34,6 +36,7 @@ public class PingServiceImpl implements PingServiceI {
         return createDTOFromPing(ping);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<PingDTO> findAll() {
         final List<Ping> list = pingDao.findAll();
@@ -53,6 +56,7 @@ public class PingServiceImpl implements PingServiceI {
         }
     }
 
+    @Transactional(readOnly = true)
     @Override
     public PingDTO findOne(final int id) throws PingNotFoundException {
         final Ping ping = findPingById(id);
@@ -60,6 +64,7 @@ public class PingServiceImpl implements PingServiceI {
         return createDTOFromPing(ping);
     }
 
+    @Transactional
     @Override
     public PingDTO updateOne(
         final int id, final PingDTO dto
@@ -70,9 +75,13 @@ public class PingServiceImpl implements PingServiceI {
         ping.setDescription(dto.getDescription());
         pingDao.updateOne(ping);
 
+        if (id > 0)
+            throw new NullPointerException("safa");
+
         return createDTOFromPing(ping);
     }
 
+    @Transactional
     @Override
     public PingDTO deleteOne(final int id) throws PingNotFoundException {
         final Ping ping = findPingById(id);
