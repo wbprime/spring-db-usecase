@@ -15,6 +15,7 @@
 
     <modules>
         <module>spring-mybatis-java</module>
+        <module>spring-mybatis-xml</module>
     </modules>
 
     <properties>
