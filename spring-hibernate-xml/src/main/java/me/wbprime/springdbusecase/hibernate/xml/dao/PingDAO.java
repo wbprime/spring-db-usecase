@@ -1,7 +1,7 @@
-package me.wbprime.springdbusecase.mybatis.xml.dao;
+package me.wbprime.springdbusecase.hibernate.xml.dao;
 
 
-import me.wbprime.springdbusecase.mybatis.xml.models.Ping;
+import me.wbprime.springdbusecase.hibernate.xml.models.Ping;
 
 import java.util.List;
 
@@ -22,5 +22,5 @@ public interface PingDAO {
 
     void updateOne(final Ping ping);
 
-    void deleteOne(int id);
+    void deleteOne(final Ping ping);
 }

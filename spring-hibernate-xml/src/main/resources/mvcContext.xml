@@ -22,5 +22,5 @@
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" />
 
-    <context:component-scan base-package="me.wbprime.springdbusecase.mybatis.xml.controllers" />
+    <context:component-scan base-package="me.wbprime.springdbusecase.hibernate.xml.controllers" />
 </beans>

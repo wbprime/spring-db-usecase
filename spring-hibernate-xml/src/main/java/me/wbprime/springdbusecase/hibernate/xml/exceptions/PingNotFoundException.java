@@ -1,4 +1,4 @@
-package me.wbprime.springdbusecase.mybatis.xml.exceptions;
+package me.wbprime.springdbusecase.hibernate.xml.exceptions;
 
 
 /**

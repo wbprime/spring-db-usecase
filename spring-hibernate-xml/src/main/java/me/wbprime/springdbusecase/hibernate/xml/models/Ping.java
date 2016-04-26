@@ -1,5 +1,7 @@
-package me.wbprime.springdbusecase.mybatis.xml.models;
+package me.wbprime.springdbusecase.hibernate.xml.models;
 
+
+import java.sql.Date;
 
 /**
  * Class: Ping
@@ -9,31 +11,43 @@ package me.wbprime.springdbusecase.mybatis.xml.models;
  */
 public class Ping {
     private Integer id;
-    private String title;
-    private String description;
+    private String  title;
+    private String  description;
+    private Date    createTime;
 
-    public final Integer getId() {
+    public Ping() {
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public final void setId(final Integer id) {
+    public void setId(final Integer id) {
         this.id = id;
     }
 
-    public final String getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public final void setTitle(final String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
-    public final String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public final void setDescription(final String description) {
+    public void setDescription(final String description) {
         this.description = description;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(final Date createTime) {
+        this.createTime = createTime;
     }
 
     @Override
@@ -42,6 +56,7 @@ public class Ping {
         sb.append("id=").append(id);
         sb.append(", title='").append(title).append('\'');
         sb.append(", description='").append(description).append('\'');
+        sb.append(", createTime=").append(createTime);
         sb.append('}');
         return sb.toString();
     }

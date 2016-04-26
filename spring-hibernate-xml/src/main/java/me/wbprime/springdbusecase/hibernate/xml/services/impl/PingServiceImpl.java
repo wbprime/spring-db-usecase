@@ -1,13 +1,13 @@
-package me.wbprime.springdbusecase.mybatis.xml.services.impl;
+package me.wbprime.springdbusecase.hibernate.xml.services.impl;
 
 
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
-import me.wbprime.springdbusecase.mybatis.xml.dao.PingDAO;
-import me.wbprime.springdbusecase.mybatis.xml.dto.PingDTO;
-import me.wbprime.springdbusecase.mybatis.xml.exceptions.PingNotFoundException;
-import me.wbprime.springdbusecase.mybatis.xml.models.Ping;
-import me.wbprime.springdbusecase.mybatis.xml.services.PingServiceI;
+import me.wbprime.springdbusecase.hibernate.xml.dao.PingDAO;
+import me.wbprime.springdbusecase.hibernate.xml.dto.PingDTO;
+import me.wbprime.springdbusecase.hibernate.xml.exceptions.PingNotFoundException;
+import me.wbprime.springdbusecase.hibernate.xml.models.Ping;
+import me.wbprime.springdbusecase.hibernate.xml.services.PingServiceI;
 
 import java.util.Collections;
 import java.util.List;
@@ -81,7 +81,7 @@ public class PingServiceImpl implements PingServiceI {
     public PingDTO deleteOne(final int id) throws PingNotFoundException {
         final Ping ping = findPingById(id);
 
-        pingDao.deleteOne(id);
+        pingDao.deleteOne(ping);
 
         return createDTOFromPing(ping);
     }

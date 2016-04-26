@@ -21,9 +21,16 @@
 
     <bean id="sqlSessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+        <property name="mappingResources">
+            <list>
+                <value>hibernate/mappings/Ping.hbm.xml</value>
+            </list>
+        </property>
         <property name="hibernateProperties">
-            <value>hibernate.dialect=org.hibernate.dialect.H2Dialect</value>
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
         </property>
     </bean>
 
@@ -40,7 +47,11 @@
 
     <aop:config>
         <aop:pointcut id="txPointcut"
-                      expression="execution(* me.wbprime.springdbusecase.mybatis.xml.services.PingServiceI.*(..))"/>
+                      expression="execution(* me.wbprime.springdbusecase.hibernate.xml.services.PingServiceI.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
+
+    <bean id="pingDAO" class="me.wbprime.springdbusecase.hibernate.xml.dao.impl.PingDAOImpl">
+        <property name="sessionFactory" ref="sqlSessionFactory" />
+    </bean>
 </beans>

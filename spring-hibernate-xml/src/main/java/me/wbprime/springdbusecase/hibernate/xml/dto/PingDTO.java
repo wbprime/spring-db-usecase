@@ -1,4 +1,4 @@
-package me.wbprime.springdbusecase.mybatis.xml.dto;
+package me.wbprime.springdbusecase.hibernate.xml.dto;
 
 
 import javax.validation.constraints.NotNull;

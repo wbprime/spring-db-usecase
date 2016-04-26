@@ -1,12 +1,12 @@
-package me.wbprime.springdbusecase.mybatis.xml.controllers;
+package me.wbprime.springdbusecase.hibernate.xml.controllers;
 
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import me.wbprime.springdbusecase.mybatis.xml.dto.ErrorDTO;
-import me.wbprime.springdbusecase.mybatis.xml.dto.PingDTO;
-import me.wbprime.springdbusecase.mybatis.xml.exceptions.PingNotFoundException;
-import me.wbprime.springdbusecase.mybatis.xml.services.PingServiceI;
+import me.wbprime.springdbusecase.hibernate.xml.dto.ErrorDTO;
+import me.wbprime.springdbusecase.hibernate.xml.dto.PingDTO;
+import me.wbprime.springdbusecase.hibernate.xml.exceptions.PingNotFoundException;
+import me.wbprime.springdbusecase.hibernate.xml.services.PingServiceI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

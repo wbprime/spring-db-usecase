@@ -1,8 +1,8 @@
-package me.wbprime.springdbusecase.mybatis.xml.services;
+package me.wbprime.springdbusecase.hibernate.xml.services;
 
 
-import me.wbprime.springdbusecase.mybatis.xml.dto.PingDTO;
-import me.wbprime.springdbusecase.mybatis.xml.exceptions.PingNotFoundException;
+import me.wbprime.springdbusecase.hibernate.xml.dto.PingDTO;
+import me.wbprime.springdbusecase.hibernate.xml.exceptions.PingNotFoundException;
 
 import java.util.List;
 
