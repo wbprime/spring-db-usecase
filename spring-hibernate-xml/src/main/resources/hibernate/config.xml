@@ -21,7 +21,7 @@
     </settings>
 
     <typeAliases>
-        <typeAlias type="me.wbprime.springdbusecase.mybatis.xml.models.Ping" alias="Ping"/>
+        <typeAlias type="me.wbprime.springdbusecase.hibernate.xml.models.Ping" alias="Ping"/>
     </typeAliases>
 
     <!--<typeHandlers>-->

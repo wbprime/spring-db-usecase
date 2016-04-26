@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="me.wbprime.springdbusecase.mybatis.xml.dao.PingDAO">
+<mapper namespace="me.wbprime.springdbusecase.hibernate.xml.dao.PingDAO">
     <!--<cache/>-->
 
     <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="Ping">
