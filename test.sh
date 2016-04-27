@@ -10,58 +10,53 @@ DELETE_URL="/ping/"
 
 # 1. post
 echo "########################################################################################################################"
-for ii in `seq 1 20`; do
+for ii in `seq 1 5`; do
     title_str="Title "${ii}${ii}${ii}
     desc_str="Description "${ii}${ii}${ii}
+    echo curl -i -X POST ${DEFAULT_HOST}:${DEFAULT_PORT}${POST_URL} -d "{\"title\":\"$title_str\",\"description\":\"$desc_str\"}" -H "Content-type: Application/json;UTF-8"
     curl -i -X POST ${DEFAULT_HOST}:${DEFAULT_PORT}${POST_URL} -d "{\"title\":\"$title_str\",\"description\":\"$desc_str\"}" -H "Content-type: Application/json;UTF-8"
     echo ""
 done
 echo "########################################################################################################################"
 
-# 2. list
+# 2. get
 echo "########################################################################################################################"
-curl -i -X GET ${DEFAULT_HOST}:${DEFAULT_PORT}${LIST_URL} -H "Content-type: Application/json;UTF-8"
-echo "########################################################################################################################"
-
-# 3. get
-echo "########################################################################################################################"
-for ii in `seq 1 20`; do
+for ii in `seq 1 5`; do
+    echo curl -i -X GET ${DEFAULT_HOST}:${DEFAULT_PORT}${GET_URL}/$ii -H "Content-type: Application/json;UTF-8"
     curl -i -X GET ${DEFAULT_HOST}:${DEFAULT_PORT}${GET_URL}/$ii -H "Content-type: Application/json;UTF-8"
     echo ""
 done
 echo "########################################################################################################################"
 
-# 4. list
+# 3. put & get
 echo "########################################################################################################################"
-curl -i -X GET ${DEFAULT_HOST}:${DEFAULT_PORT}${LIST_URL} -H "Content-type: Application/json;UTF-8"
-echo "########################################################################################################################"
-
-# 5. put & get
-echo "########################################################################################################################"
-for ii in `seq 1 20`; do
+for ii in `seq 1 5`; do
     title_str="New title "${ii}${ii}${ii}
     desc_str="New description "${ii}${ii}${ii}
+    echo curl -i -X PUT ${DEFAULT_HOST}:${DEFAULT_PORT}${PUT_URL}/$ii -d "{\"title\":\"$title_str\",\"description\":\"$desc_str\"}" -H "Content-type: Application/json;UTF-8"
     curl -i -X PUT ${DEFAULT_HOST}:${DEFAULT_PORT}${PUT_URL}/$ii -d "{\"title\":\"$title_str\",\"description\":\"$desc_str\"}" -H "Content-type: Application/json;UTF-8"
+    echo ""
+    echo curl -i -X GET ${DEFAULT_HOST}:${DEFAULT_PORT}${GET_URL}/$ii -H "Content-type: Application/json;UTF-8"
     curl -i -X GET ${DEFAULT_HOST}:${DEFAULT_PORT}${GET_URL}/$ii -H "Content-type: Application/json;UTF-8"
     echo ""
 done
 echo "########################################################################################################################"
 
-# 6. list
+# 4. delete & get
 echo "########################################################################################################################"
-curl -i -X GET ${DEFAULT_HOST}:${DEFAULT_PORT}${LIST_URL} -H "Content-type: Application/json;UTF-8"
-echo "########################################################################################################################"
-
-# 7. delete & get
-echo "########################################################################################################################"
-for ii in `seq 1 20`; do
+for ii in `seq 1 5`; do
+    echo curl -i -X DELETE ${DEFAULT_HOST}:${DEFAULT_PORT}${DELETE_URL}/$ii -H "Content-type: Application/json;UTF-8"
     curl -i -X DELETE ${DEFAULT_HOST}:${DEFAULT_PORT}${DELETE_URL}/$ii -H "Content-type: Application/json;UTF-8"
+    echo ""
+    echo curl -i -X GET ${DEFAULT_HOST}:${DEFAULT_PORT}${GET_URL}/$ii -H "Content-type: Application/json;UTF-8"
     curl -i -X GET ${DEFAULT_HOST}:${DEFAULT_PORT}${GET_URL}/$ii -H "Content-type: Application/json;UTF-8"
     echo ""
 done
 echo "########################################################################################################################"
 
-# 6. list
+# 5. list
 echo "########################################################################################################################"
+echo curl -i -X GET ${DEFAULT_HOST}:${DEFAULT_PORT}${LIST_URL} -H "Content-type: Application/json;UTF-8"
 curl -i -X GET ${DEFAULT_HOST}:${DEFAULT_PORT}${LIST_URL} -H "Content-type: Application/json;UTF-8"
+echo ""
 echo "########################################################################################################################"
