@@ -1,13 +1,10 @@
 package me.wbprime.springdbusecase.jpa.java.models;
 
 
-import org.hibernate.annotations.Generated;
-import org.hibernate.annotations.GenerationTime;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -24,8 +21,7 @@ import java.util.Date;
 @Table(name = "pings")
 public class Ping {
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name="increment", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "title", nullable = false)
@@ -35,8 +31,7 @@ public class Ping {
     private String description;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "create_time")
-    @Generated(value = GenerationTime.INSERT)
+    @Column(name = "create_time", insertable = false, updatable = false)
     private Date createTime;
 
     public final Integer getId() {
