@@ -75,9 +75,6 @@ public class PingServiceImpl implements PingServiceI {
         ping.setDescription(dto.getDescription());
         pingDao.updateOne(ping);
 
-        if (id > 0)
-            throw new NullPointerException("safa");
-
         return createDTOFromPing(ping);
     }
 
