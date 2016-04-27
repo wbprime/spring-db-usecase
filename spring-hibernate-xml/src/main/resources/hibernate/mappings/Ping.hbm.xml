@@ -11,9 +11,7 @@
         </id>
         <property name="title" column="title" type="string"/>
         <property name="description" column="description" type="string"/>
-        <property name="createTime" not-null="false">
-            <column name="create_time" not-null="true" default="now()" sql-type="datetime" />
-        </property>
+        <property name="createTime" column="create_time" type="date" generated="insert" />
     </class>
 
 </hibernate-mapping>
