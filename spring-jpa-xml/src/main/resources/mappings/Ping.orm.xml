@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.1"
+                 xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="
+                    http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd
+                 ">
+
+    <!--default package used for all non qualified class names in the given deployment descriptor file-->
+    <package>me.wbprime.springdbusecase.jpa.xml.models</package>
+
+    <!--desribes an entity-->
+    <entity class="Ping" access="PROPERTY" metadata-complete="true">
+        <!--declare table properties (name, schema, catalog)-->
+        <table name="pings">
+        </table>
+
+        <attributes>
+            <id name="id" >
+                <column name="id"/>
+                <generated-value strategy="IDENTITY"/>
+            </id>
+            <basic name="title">
+                <column name="title"/>
+            </basic>
+            <basic name="description">
+                <column name="description" />
+            </basic>
+            <basic name="createTime">
+                <column name="create_time" insertable="false" updatable="false" />
+                <temporal>TIMESTAMP</temporal>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
+

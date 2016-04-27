@@ -20,6 +20,7 @@
         <module>spring-hibernate-xml</module>
         <module>spring-hibernate-java</module>
         <module>spring-jpa-java</module>
+        <module>spring-jpa-xml</module>
     </modules>
 
     <properties>
