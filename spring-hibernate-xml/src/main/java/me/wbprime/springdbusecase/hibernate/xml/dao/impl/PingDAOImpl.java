@@ -4,7 +4,6 @@ package me.wbprime.springdbusecase.hibernate.xml.dao.impl;
 import me.wbprime.springdbusecase.hibernate.xml.dao.PingDAO;
 import me.wbprime.springdbusecase.hibernate.xml.models.Ping;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
