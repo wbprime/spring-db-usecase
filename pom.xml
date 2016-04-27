@@ -18,6 +18,7 @@
         <module>spring-mybatis-java</module>
         <module>spring-mybatis-xml</module>
         <module>spring-hibernate-xml</module>
+        <module>spring-hibernate-java</module>
     </modules>
 
     <properties>
