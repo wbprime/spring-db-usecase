@@ -21,6 +21,7 @@
         <module>spring-hibernate-java</module>
         <module>spring-jpa-java</module>
         <module>spring-jpa-xml</module>
+        <module>springdata-jpa-java</module>
     </modules>
 
     <properties>
@@ -32,6 +33,7 @@
         <jetty.plugin.version>9.3.7.v20160115</jetty.plugin.version>
 
         <spring.framework.version>4.2.5.RELEASE</spring.framework.version>
+        <spring.data.jpa.version>1.10.1.RELEASE</spring.data.jpa.version>
         <slf4j.version>1.7.10</slf4j.version>
         <logback.version>1.1.7</logback.version>
         <google.guava.version>19.0</google.guava.version>
@@ -141,6 +143,13 @@
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjweaver</artifactId>
                 <version>${aspectj.weaver.version}</version>
+            </dependency>
+
+            <!--Spring data jpa-->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jpa</artifactId>
+                <version>${spring.data.jpa.version}</version>
             </dependency>
 
             <!-- Servlet API 3.0 -->
